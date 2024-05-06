@@ -1,0 +1,189 @@
+:root{
+    --main--color: #ff9800;
+    /* --second--color: #e91e63;
+    --therd--color: #009688;
+    --forth--color: #4caf50;
+    --fifth--color: #03a9f4; */
+}
+* {
+    box-sizing: border-box;
+}
+body {
+font-family: "Open Sans", sans-serif;
+}
+
+/* start setting box */
+.setting-box {
+    width: 200px;
+    background-color: #fff;
+    position: fixed;
+    left: -200px;
+    top: 0;
+    z-index: 22;
+    min-height: 100vh;
+    transition: 1s;
+}
+
+.setting-box .toggle-settings{
+    position: absolute;
+    right: -30px;
+    top: 100px;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+
+.toggle-settings .gear {
+    font-size: 20px;
+    width: 30px;
+    padding: 8px 0;
+}
+
+.setting-box.open {
+    left: 0;
+}
+
+.setting-container .option-box {
+    padding: 10px;
+    margin: 10px;
+    background-color: #eee;
+    text-align: center;
+}
+
+.setting-container h4 {
+    color: #666;
+    margin: 0;
+    font-size: 14px;
+}
+
+.setting-container .colors-list {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+
+.setting-box .colors-list li {
+    list-style: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    border: 3px solid #eee;
+}
+.setting-box .colors-list li:first-child {
+    background-color: #ff9800;
+}
+.setting-box .colors-list li:nth-child(2) {
+    background-color: #e91e63;
+}
+.setting-box .colors-list li:nth-child(3) {
+    background-color: #009688;
+}
+.setting-box .colors-list li:nth-child(4) {
+    background-color: #4caf50;
+}
+.setting-box .colors-list li:last-child{
+    background-color: #03a9f4;
+}
+
+.setting-box .colors-list li.active {
+    border-color: #fff;   
+}
+
+.setting-box .random-backgrounds .yes, 
+.setting-box .random-backgrounds .no {
+    width: 50px;
+    padding: 3px 10px;
+    background-color: #009688;
+    color: #fff;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 12px;
+    border-radius: 4px;
+    opacity: .5;
+    cursor: pointer;
+}
+.setting-box .random-backgrounds span.active{
+    opacity: 1;
+}
+.setting-box .random-backgrounds .yes {
+    background-color: #009688;
+}
+.setting-box .random-backgrounds .no {
+
+}
+/* end setting box */
+
+/* Start page */
+.landing-page {
+    padding: 20px;
+    background-image: url(../img/01.jpg);
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+}
+.landing-page .overlay {
+    background-color:rgb(0 0 0 / .6);;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.header-area {
+    position: relative;
+    color: white;
+    z-index: 2;
+    display: flex;
+    padding: 10px;
+}
+.header-area .logo {
+    width: 300px;
+    padding: 15px;
+    font-weight: bold;
+}
+.links {
+    list-style-type: none;
+    text-align: right; 
+    width: 100%;
+    padding-left: 0;
+    padding-right: 20px;
+    font-size: 15px;
+}
+.links li {
+    display: inline-block;
+    margin-left: 5px;
+}
+.links li a {
+    text-decoration: none;
+    color: #fff;
+}
+.links li a:hover, 
+.links li a.active{
+    color: var(--main--color);
+}
+.intro-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+    width: 100%;
+}
+.intro-text h1 {
+    font-size: 40px;    
+    margin: 0 0 12px;
+}
+.intro-text h1 span {
+    color: var(--main--color);
+}
+.intro-text p {
+    line-height: 1.6;
+    font-size: 20px;
+    margin: 0;
+}
+/* end page */
