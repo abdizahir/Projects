@@ -14,7 +14,7 @@ if(mainColor !== null) {
         }
     });
 
-}
+} 
 
 // random background option
 let backgorundOption = true;
@@ -104,3 +104,67 @@ function randomizeImg() {
 }
 
 randomizeImg();
+
+// slect skils slector
+let ourSkills = document.querySelector(".skills");
+
+window.onscroll = function() {
+    let skiilOfsetTop = ourSkills.offsetTop;
+
+    let skillOuterHight = ourSkills.offsetHight;
+
+    let windowHeight = this.innerHeight;
+
+    let windowScrollTop = this.scrollY;
+
+    if(windowScrollTop > (skiilOfsetTop + skillOuterHight - windowHeight)); {
+        let allSkills = document.querySelectorAll(".skills-box .skill-progress span");
+        allSkills.forEach(skill => {
+            skill.style.width = skill.dataset.progress;
+        })
+    }
+}
+
+// create popup
+let ourGallery = document.querySelectorAll(".gallery img");
+
+ourGallery.forEach(img => {
+    img.addEventListener("click", (el) => {
+        let overlay = document.createElement("div");
+        overlay.className = "popup-overlay";
+        document.body.appendChild(overlay);
+        let popBox = document.createElement("div");
+        popBox.className = "popup-box";
+        // CREATE TEXTNode
+        if(img.alt !== null) {
+            let imgHeading = document.createElement("h3");
+            let imgTxt = document.createTextNode(img.alt);
+            imgHeading.appendChild(imgTxt);
+            popBox.appendChild(imgHeading);
+        }else {
+            
+        }
+
+        let popImg = document.createElement("img");
+        popImg.src = img.src;
+        popBox.appendChild(popImg);
+        document.body.appendChild(popBox);
+
+        // creat close span
+        let closeSpan = document.createElement("span");
+        let closeTxt = document.createTextNode("X");
+        closeSpan.appendChild(closeTxt);
+        closeSpan.className = "close-span";
+        popBox.appendChild(closeSpan);
+    });
+});
+
+// close popUp
+
+document.addEventListener("click", function(e) {
+
+    if(e.target.className === 'close-span') {
+        e.target.parentNode.remove();
+        document.querySelector(".popup-overlay").remove();
+    }
+})
