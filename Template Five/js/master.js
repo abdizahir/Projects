@@ -24,20 +24,17 @@ let backgorundInterval;
 // check lockal storge for random background 
 let randomBackgroundLockalstorge = localStorage.getItem("random-option");
 if(randomBackgroundLockalstorge !== null) {
-    if(randomBackgroundLockalstorge === 'true') {
-        backgorundOption = true;
-    }else {
-        backgorundOption = false;
-    }
-    // remove active from all spans
     document.querySelectorAll(".random-backgrounds span").forEach(el => {
         el.classList.remove("active");
-        if(backgorundOption === true) {
-            document.querySelector(".random-backgrounds .yes").classList.add("active");
-        }else {
-            document.querySelector(".random-backgrounds .no").classList.add("active");
-        }
-    })
+    });
+    if(randomBackgroundLockalstorge === 'true') {
+        backgorundOption = true;
+        document.querySelector(".random-backgrounds .yes").classList.add("active");
+    }else {
+        backgorundOption = false;
+        document.querySelector(".random-backgrounds .no").classList.add("active");
+    }
+    // remove active from all spans
 }
 
 // toggle spin class 
@@ -54,13 +51,8 @@ colrsLi.forEach(li => {
         // console.log(e.target.dataset.color);
         document.documentElement.style.setProperty('--main--color', e.target.dataset.color);
         // set color on root
-       localStorage.setItem("color-option", e.target.dataset.color);
-        // remove active class
-        e.target.parentElement.querySelectorAll(".active").forEach(el => {
-            el.classList.remove("active");
-        });
-        // add active
-       e.target.classList.add("active");
+        localStorage.setItem("color-option", e.target.dataset.color);
+        handleActive(e);
     });
 });
 
@@ -68,10 +60,7 @@ colrsLi.forEach(li => {
 let randBack = document.querySelectorAll(".random-backgrounds span");
 randBack.forEach(spn => {
     spn.addEventListener("click", (e) => {
-        e.target.parentElement.querySelectorAll(".active").forEach(el => {
-            el.classList.remove("active");
-        })
-        e.target.classList.add("active");
+        handleActive(e);
 
         if(e.target.dataset.background === 'yes') {
             backgorundOption === true;
@@ -168,3 +157,102 @@ document.addEventListener("click", function(e) {
         document.querySelector(".popup-overlay").remove();
     }
 })
+
+// select all buletts 
+
+const allBuletts = document.querySelectorAll(".bullet");
+
+
+// select all links
+const allLinks = document.querySelectorAll(".links a");
+
+
+function scrollTo (element) {
+    element.forEach(ele => {
+        ele.addEventListener("click", (e) => {
+            document.querySelector(e.target.dataset.secttion).scrollIntoView({
+                behavior: 'smooth'
+            })
+        })
+    })
+}
+
+scrollTo(allBuletts);
+scrollTo(allLinks);
+
+// create  Handle Active state
+function handleActive(ev) {
+    ev.target.parentElement.querySelectorAll(".active").forEach(el => {
+        el.classList.remove("active");
+    })
+    ev.target.classList.add("active");
+}
+
+let bulletSpan = document.querySelectorAll(".bullet-option span");
+let bulletContainer = document.querySelector(".nav-bullets");
+
+let bulletLocalItem = localStorage.getItem("bullet-option");
+if(bulletLocalItem !== null) {
+    bulletSpan.forEach(span => {
+        span.classList.remove("active");
+        
+    });
+    if(bulletLocalItem === 'block') {
+        bulletContainer.style.display = 'block';
+        document.querySelector(".bullet-option .yes").classList.add("active");
+    }else {
+        bulletContainer.style.display = 'none';
+        document.querySelector(".bullet-option .no").classList.add("active");
+    }
+
+}
+
+bulletSpan.forEach(span => {
+    span.addEventListener("click", (e) => {
+        if(span.dataset.display === 'show') {
+
+            bulletContainer.style.display = 'block';
+
+            localStorage.setItem("bullet-option", 'block');
+        } else {
+            bulletContainer.style.display = 'none';
+
+            localStorage.setItem("bullet-option", 'none');
+        }
+        handleActive(e);
+    })
+})
+
+document.querySelector(".rest-option").onclick = function () {
+    // localStorage.clear();
+    localStorage.removeItem("color-option");
+    localStorage.removeItem("random-option");
+    localStorage.removeItem("bullet-option");
+    window.location.reload();
+}
+
+// toggle menu 
+
+let toggoleBtn = document.querySelector(".toggle-menue");
+let theLinks = document.querySelector(".links");
+
+toggoleBtn.onclick = function(e) {
+    this.classList.toggle("menu-active");
+    theLinks.classList.toggle("open");
+    e.stopPropagation();
+}
+
+// click anywhere outside menu and toggole button
+document.addEventListener("click", (e) => {
+    if(e.target !== toggoleBtn && e.target !== theLinks) {
+        if(theLinks.classList.contains("open")) {
+            toggoleBtn.classList.toggle("menu-active");
+            theLinks.classList.toggle("open");
+        }
+    }
+})
+
+// stop propaggation on menu
+theLinks.onclick = function(e) {
+    e.stopPropagation();        
+}

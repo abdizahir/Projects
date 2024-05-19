@@ -13,7 +13,6 @@
 </head>
 <body>
     <!-- start settings box -->
-    <!-- end settings box -->
     <div class="setting-box">
         <div class="toggle-settings">
             <i class="gear fa-solid fa-gear"></i>
@@ -36,20 +35,60 @@
                     <span class="no" data-background="no">No</span>
                 </div>
             </div>
+            <div class="option-box">
+                <h4>Show Bullet</h4>
+                <div class="bullet-option">
+                    <span class="yes active" data-display="show">Yes</span>
+                    <span class="no" data-display="hide">No</span>
+                </div>
+            </div>
+            <button class="rest-option">Rest Options</button>
         </div>
     </div>
+    <!-- end settings box -->
+    <!-- start nav bullets -->
+    <div class="nav-bullets">
+        <div class="bullet" data-secttion=".about-us">
+            <div class="tooltip">About Us</div>
+        </div>
+        <div class="bullet" data-secttion=".skills">
+            <div class="tooltip">Our Skills</div>
+        </div>
+        <div class="bullet" data-secttion=".gallery">
+            <div class="tooltip">Our Gallery</div>
+        </div>
+        <div class="bullet" data-secttion=".timline">
+            <div class="tooltip">Timeline</div>
+        </div>
+        <div class="bullet" data-secttion=".features">
+            <div class="tooltip">Features</div>
+        </div>
+        <div class="bullet" data-secttion=".Testimonials">
+            <div class="tooltip">Testimonials</div>
+        </div>
+    </div>
+    <!-- end nav bullets -->
     <!-- Start Landing -->
     <div class="landing-page">
         <div class="overlay"></div>
         <div class="container">
             <div class="header-area">
                 <div class="logo">Spcial Design</div>
-                <ul class="links">
-                    <li><a href="#" class="active">About</a></li>
-                    <li><a href="#">Service</a></li>
-                    <li><a href="#">Product</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
+                <div class="links-container">
+                    <ul class="links">
+                        <li><a href="#" data-secttion=".about-us" class="active">About</a></li>
+                        <li><a href="#" data-secttion=".skills">Skills</a></li>
+                        <li><a href="#" data-secttion=".gallery">Gallery</a></li>
+                        <li><a href="#" data-secttion=".timline">Timeline</a></li>
+                        <li><a href="#" data-secttion=".features">Features</a></li>
+                        <li><a href="#" data-secttion=".Testimonials">Testimonials</a></li>
+                    </ul>
+                    <button class="toggle-menue">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="intro-text">
@@ -182,6 +221,96 @@
         </div>
     </div>
     <!-- end timeline -->
+    <!-- start features -->
+    <div class="features">
+        <h2>Our Features</h2>
+        <div class="container">
+            <div class="feat-box">
+                <img src="img/Icon_01.png" alt="">
+                <h4>Development</h4>
+                <p>We are professional marketeers, we will do anything you imagine in no time.</p>
+            </div>
+            <div class="feat-box">
+                <img src="img/Icon_02.png" alt="">
+                <h4>Marketing</h4>
+                <p>We are professional marketeers, we will do anything you imagine in no time.</p>
+            </div>
+            <div class="feat-box">
+                <img src="img/Icon_03.png" alt="">
+                <h4>Hosting</h4>
+                <p>We are professional marketeers, we will do anything you imagine in no time.</p>
+            </div>
+            <div class="feat-box">
+                <img src="img/Icon_04.png" alt="">
+                <h4>Mobile Develope</h4>
+                <p>We are professional marketeers, we will do anything you imagine in no time.</p>
+            </div>
+            <div class="feat-box">
+                <img src="img/Icon_05.png" alt="">
+                <h4>Cloud and Servers</h4>
+                <p>We are professional marketeers, we will do anything you imagine in no time.</p>
+            </div>
+            <div class="feat-box">
+                <img src="img/Icon_06.png" alt="">
+                <h4>Seo</h4>
+                <p>We are professional marketeers, we will do anything you imagine in no time.</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- end features -->
+    <!-- start Testimonials -->
+    <div class="Testimonials">
+        <div class="container">
+            <h2>Testimonials</h2> 
+            <div class="test-box">
+                <p>Iam very happy with the product its amazing and i recieve it very fast and the price was amazing.</p>
+                <div class="person-info">
+                    <h4>Ahmed Mosaad</h4>
+                    <p>CEO At Company</p>
+                </div>
+            </div>
+            <div class="test-box">
+                <p>Iam very happy with the product its amazing and i recieve it very fast and the price was amazing.</p>
+                <div class="person-info">
+                    <h4>Mohamed Ibrahim</h4>
+                    <p>CEO At Company</p>
+                </div>
+            </div>
+            <div class="test-box">
+                <p>Iam very happy with the product its amazing and i recieve it very fast and the price was amazing.</p>
+                <div class="person-info">
+                    <h4>Sherief Ashraf</h4>
+                    <p>CEO At Company</p>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- end Testimonials -->
+    <!-- start contact -->
+    <div class="contact">
+        <div class="overlay"></div>
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form action="">
+                <div class="left">
+                    <input type="text" placeholder="Your Name" name="username">
+                    <input type="text" placeholder="Your Phone" name="phone">
+                    <input type="email" placeholder="Your Email" name="email">
+                    <input type="text" placeholder="Subject" name="Subject">
+                </div>
+                <div class="right">
+                    <textarea name="massage" placeholder="Your Massage"></textarea>
+                    <input type="submit" value="send">
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- end contact -->
+    <!-- start foter -->
+    <div class="footer">Created By Abdi&copy2024;</div>
+    <!-- end foter -->
     <script src="js/master.js"></script>
 </body>
 </html>
